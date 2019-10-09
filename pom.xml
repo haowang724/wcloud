@@ -23,6 +23,7 @@
 		<module>wcloud-service-admin</module>
 		<module>wcloud-service-core</module>
 		<module>wcloud-manager</module>
+		<module>wcloud-gateway</module>
 	</modules>
 
 	<properties>
