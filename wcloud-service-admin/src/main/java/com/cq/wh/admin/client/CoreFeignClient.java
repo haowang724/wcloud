@@ -16,6 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @FeignClient(name = "eureka-service-core",fallback = CoreServiceFallBack.class)
 public interface CoreFeignClient {
 
-    @GetMapping("/dc")
+    @GetMapping("/service-core/dc")
     String dc();
 }

@@ -22,7 +22,7 @@ public class DcController {
 
     @GetMapping("/consumer")
     public String dc(){
-        return  restTemplate.getForObject("http://eureka-service-core/dc",String.class);
+        return  restTemplate.getForObject("http://eureka-service-core/service-core/dc",String.class);
     }
 
     @GetMapping("/dcFeign")
