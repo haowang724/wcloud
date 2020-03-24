@@ -23,6 +23,7 @@
 		<module>wcloud-service-admin</module>
 		<module>wcloud-service-core</module>
 		<module>wcloud-manager</module>
+		<module>wcloud-gateway</module>
 	</modules>
 
 	<properties>
@@ -36,6 +37,16 @@
 				<version>Greenwich.RELEASE</version>
 				<type>pom</type>
 				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger2</artifactId>
+				<version>2.9.2</version>
+			</dependency>
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger-ui</artifactId>
+				<version>2.9.2</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
