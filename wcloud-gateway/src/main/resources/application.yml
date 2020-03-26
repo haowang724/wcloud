@@ -6,17 +6,27 @@ spring:
   cloud:
     gateway:
       # 路由si(集合)
-      routes:
-      # id唯一标识，(可自定义)
-      - id: eureka-service-core
-        # 路由服务地址
-        uri: lb://eureka-service-core
-        # 路由拦截地址(断言)
-        predicates:
-        - Path=/eureka-service-core/**
+#      routes:
+#      # id唯一标识，(可自定义)
+#      - id: eureka-service-core
+#        # 路由服务地址
+#        uri: lb://eureka-service-core
+#        # 路由拦截地址(断言)
+#        predicates:
+#        - Path=/eureka-service-core/**
+      discovery:
+        locator:
+          enabled: true
+# spring.cloud.gateway.discovery.locator.enabled：开启SpringCloud Gateway的注册中心发现配置，开启后可自动从服务注册中心拉取服务列表，通过各个服务的spring.application.name作为前缀进行转发，该配置默认为false
+
 # Eureka服务中心配置
 eureka:
   client:
     service-url:
       # 注册Eureka Server集群
       defaultZone: http://localhost:8761/eureka/
+
+#logging.level.org.springframework.cloud.gateway：设置SpringCloud Gateway日志等级为debug，用于输出转发的细节日志，方便查看细节流程
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
