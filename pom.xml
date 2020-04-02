@@ -24,6 +24,7 @@
 		<module>wcloud-service-core</module>
 		<module>wcloud-manager</module>
 		<module>wcloud-gateway</module>
+		<module>wcloud-uaa</module>
 	</modules>
 
 	<properties>
