@@ -1,7 +1,12 @@
 spring:
   application:
     name: eureka-mangager
-
+  rabbitmq:
+    host: 47.104.219.172
+    port: 5672
+    username: admin
+    password: admin
+    virtual-host: recipe-flow
 server:
   port: 10000
 
