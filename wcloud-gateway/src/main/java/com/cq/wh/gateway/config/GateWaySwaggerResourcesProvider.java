@@ -51,7 +51,7 @@ public class GateWaySwaggerResourcesProvider implements SwaggerResourcesProvider
         Set<String> dealed = new HashSet<>();
         routeHosts.forEach(instance -> {
             // 拼接url，样式为/serviceId/v2/api-info，当网关调用这个接口时，会自动通过负载均衡寻找对应的主机
-            String url = "/" + instance + SWAGGER2URL;
+            String url = "/" + instance.toLowerCase() + SWAGGER2URL;
             if (!dealed.contains(url)) {
                 dealed.add(url);
                 SwaggerResource swaggerResource = new SwaggerResource();

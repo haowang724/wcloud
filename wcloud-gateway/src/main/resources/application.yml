@@ -17,6 +17,7 @@ spring:
       discovery:
         locator:
           enabled: true
+          lower-case-service-id: true  #转为小写
 # spring.cloud.gateway.discovery.locator.enabled：开启SpringCloud Gateway的注册中心发现配置，开启后可自动从服务注册中心拉取服务列表，通过各个服务的spring.application.name作为前缀进行转发，该配置默认为false
 
 # Eureka服务中心配置
