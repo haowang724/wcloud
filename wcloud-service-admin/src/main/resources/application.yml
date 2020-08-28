@@ -12,3 +12,16 @@ eureka:
 feign:
   hystrix:
     enabled: true
+
+security:
+  oauth2:
+    client:
+      client-id: internal
+      client-secret: internal
+      user-authorization-uri: http://uaa/oauth/authorize
+      access-token-uri: http://uaa/oauth/token
+    resource:
+      id: admin-client
+      user-info-uri: admin
+    authorization:
+      check-token-access: http://127.0.0.1:12000/oauth/check_token

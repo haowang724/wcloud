@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @Auther: wh
@@ -13,9 +14,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @Description:
  */
 @Component
-@FeignClient(name = "eureka-service-core",fallback = CoreServiceFallBack.class)
+@FeignClient(name = "eureka-service-core")
 public interface CoreFeignClient {
 
     @GetMapping("/service-core/dc")
     String dc();
+
+    @GetMapping("/core/workTest")
+    String workTest(@RequestParam("name")String name);
 }

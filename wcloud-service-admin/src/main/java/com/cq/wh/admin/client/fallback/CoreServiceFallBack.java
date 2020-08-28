@@ -14,4 +14,9 @@ public class CoreServiceFallBack implements CoreFeignClient {
     public String dc() {
         return "dc error";
     }
+
+    @Override
+    public String workTest(String name) {
+        return "error workTest";
+    }
 }

@@ -2,6 +2,7 @@ package com.cq.wh.wclouduaa.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -37,7 +38,7 @@ public class KiteUserDetailsService implements UserDetailsService {
             authorities.add(new SimpleGrantedAuthority(role));
             // 线上环境应该通过用户名查询数据库获取加密后的密码
             String password = passwordEncoder.encode("123456");
-            return new org.springframework.security.core.userdetails.User(username,password, authorities);
+            return new User(username,password, authorities);
         }
     }
 }
