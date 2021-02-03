@@ -46,20 +46,20 @@ public class UaaConfiguration extends AuthorizationServerConfigurerAdapter {
                 .secret(passwordEncoder.encode("web-secret"))
                 .authorizedGrantTypes("implicit", "refresh_token", "password", "authorization_code")
                 .accessTokenValiditySeconds(3600)
-                .scopes("openid")
+                .scopes("all")
                 .and()
                 .withClient("internal")
                 .secret(passwordEncoder.encode("internal"))
                 .authorizedGrantTypes("client_credentials")
                 .accessTokenValiditySeconds(3600)
-                .scopes("web-app");
+                .scopes("all");
     }
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer oauthServer)
             throws Exception {
-//        oauthServer.allowFormAuthenticationForClients();
+        oauthServer.allowFormAuthenticationForClients();  //允许使用client_id、client_secret验证权限
         oauthServer.tokenKeyAccess("permitAll()").checkTokenAccess(
-                "isAuthenticated()");
+                "permitAll()");
     }
 }
