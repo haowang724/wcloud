@@ -21,8 +21,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class SwaggerConfig {
 
     @Bean
-    public Docket createRestApi(){
-        return  new Docket(DocumentationType.SWAGGER_2)
+    public Docket createRestApi() {
+        return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
                 //控制暴露出去的路径下的实例
@@ -34,8 +34,8 @@ public class SwaggerConfig {
 
     }
 
-    private ApiInfo  apiInfo(){
-        return  new ApiInfoBuilder()
+    private ApiInfo apiInfo() {
+        return new ApiInfoBuilder()
                 .title("Swagger service-core")
                 .termsOfServiceUrl("")
                 .contact("zwd")

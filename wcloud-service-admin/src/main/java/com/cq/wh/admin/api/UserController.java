@@ -15,23 +15,23 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date: 2020-03-22 10:55
  * @Description : 用户管理
  */
-@Api(value = "用户管理",tags = {"用户管理接口"})
+@Api(value = "用户管理", tags = {"用户管理接口"})
 @RestController("/user")
 public class UserController {
 
     @ApiOperation(value = "用户信息输出接口")
     @GetMapping("/userInfo")
-    public String useInfo(@ApiParam(name = "user",value = "用户",required = true)@RequestParam String user){
-         return "yes, "+user;
+    public String useInfo(@ApiParam(name = "user", value = "用户", required = true) @RequestParam String user) {
+        return "yes, " + user;
     }
 
     @GetMapping(value = "get")
     //@PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
-    public Object get(Authentication authentication){
+    public Object get(Authentication authentication) {
         //Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         authentication.getCredentials();
-        OAuth2AuthenticationDetails details = (OAuth2AuthenticationDetails)authentication.getDetails();
+        OAuth2AuthenticationDetails details = (OAuth2AuthenticationDetails) authentication.getDetails();
         String token = details.getTokenValue();
         return token;
     }

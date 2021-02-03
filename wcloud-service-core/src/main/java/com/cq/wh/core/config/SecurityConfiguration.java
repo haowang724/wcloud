@@ -41,7 +41,7 @@ public class SecurityConfiguration extends ResourceServerConfigurerAdapter {
     private RestTemplate restTemplate;
 
     @Bean
-    public TokenStore redisTokenStore (){
+    public TokenStore redisTokenStore() {
         return new InMemoryTokenStore();
     }
 

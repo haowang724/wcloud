@@ -29,12 +29,12 @@ public class MainController {
 
 
     @PostMapping("/login")
-    public String login(@RequestBody  Map<String, String> params){
+    public String login(@RequestBody Map<String, String> params) {
         String url = "http://uaa/oauth/token";
         HttpHeaders reqHeaders = new HttpHeaders();
         reqHeaders.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
         String authorization = "web-app:web-secret";
-        reqHeaders.add("Authorization","Basic " + Base64Utils.encodeToString(authorization.getBytes(StandardCharsets.UTF_8)));
+        reqHeaders.add("Authorization", "Basic " + Base64Utils.encodeToString(authorization.getBytes(StandardCharsets.UTF_8)));
         MultiValueMap<String, String> formParams = new LinkedMultiValueMap<>();
         formParams.set("username", params.get("username"));
         formParams.set("password", params.get("password"));

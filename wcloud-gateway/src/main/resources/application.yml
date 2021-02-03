@@ -6,14 +6,14 @@ spring:
   cloud:
     gateway:
       # 路由si(集合)
-#      routes:
-#      # id唯一标识，(可自定义)
-#      - id: eureka-service-core
-#        # 路由服务地址
-#        uri: lb://eureka-service-core
-#        # 路由拦截地址(断言)
-#        predicates:
-#        - Path=/eureka-service-core/**
+      #      routes:
+      #      # id唯一标识，(可自定义)
+      #      - id: eureka-service-core
+      #        # 路由服务地址
+      #        uri: lb://eureka-service-core
+      #        # 路由拦截地址(断言)
+      #        predicates:
+      #        - Path=/eureka-service-core/**
       discovery:
         locator:
           enabled: true

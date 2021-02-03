@@ -13,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
  * @Date: 2019/10/9 09:31
  * @Description:
  */
-@Api(value = "测试接口",tags = {"测试接口"})
+@Api(value = "测试接口", tags = {"测试接口"})
 @RestController
 public class DcController {
 
@@ -25,19 +25,19 @@ public class DcController {
 
     @ApiOperation(value = "restTemplate调用dc")
     @GetMapping("/consumer")
-    public String dc(){
-        return  restTemplate.getForObject("http://eureka-service-core/service-core/dc",String.class);
+    public String dc() {
+        return restTemplate.getForObject("http://eureka-service-core/service-core/dc", String.class);
     }
 
     @ApiOperation(value = "fegin调用dc")
     @GetMapping("/dcFeign")
-    public String dcFeign(){
+    public String dcFeign() {
         return coreFeignClient.dc();
     }
 
     @ApiOperation(value = "fegin调用workTest")
     @GetMapping("/workTestFeign")
-    public String workTestFeign(String name){
+    public String workTestFeign(String name) {
         return coreFeignClient.workTest(name);
     }
 

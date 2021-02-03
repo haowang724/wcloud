@@ -19,7 +19,7 @@ import org.springframework.security.oauth2.provider.token.store.InMemoryTokenSto
  */
 @Configuration
 @EnableAuthorizationServer
-public class UaaConfiguration extends AuthorizationServerConfigurerAdapter{
+public class UaaConfiguration extends AuthorizationServerConfigurerAdapter {
 
     @Autowired
     public PasswordEncoder passwordEncoder;
@@ -35,7 +35,8 @@ public class UaaConfiguration extends AuthorizationServerConfigurerAdapter{
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) {
         endpoints.authenticationManager(authenticationManager)
                 .userDetailsService(kiteUserDetailsService)
-                .tokenStore(new InMemoryTokenStore());;
+                .tokenStore(new InMemoryTokenStore());
+        ;
     }
 
     @Override
@@ -43,7 +44,7 @@ public class UaaConfiguration extends AuthorizationServerConfigurerAdapter{
         clients.inMemory()
                 .withClient("web-app")
                 .secret(passwordEncoder.encode("web-secret"))
-                .authorizedGrantTypes("implicit","refresh_token", "password", "authorization_code")
+                .authorizedGrantTypes("implicit", "refresh_token", "password", "authorization_code")
                 .accessTokenValiditySeconds(3600)
                 .scopes("openid")
                 .and()

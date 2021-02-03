@@ -31,7 +31,7 @@ public class WebSecurityConfig extends ResourceServerConfigurerAdapter {
     private String checkTokenEndpointUrl;
 
     @Bean
-    public TokenStore redisTokenStore (){
+    public TokenStore redisTokenStore() {
         return new InMemoryTokenStore();
     }
 
@@ -50,7 +50,6 @@ public class WebSecurityConfig extends ResourceServerConfigurerAdapter {
     }
 
     /**
-     *
      * @param http
      * @throws Exception
      */

@@ -14,18 +14,18 @@ import org.springframework.web.bind.annotation.RestController;
  * @Description:
  */
 @RestController
-@Api(value = "TestController",tags = {"无权限接口"})
+@Api(value = "TestController", tags = {"无权限接口"})
 @RequestMapping("/service-core")
 public class DcController {
 
     @GetMapping("/dc")
-    public String dc(){
+    public String dc() {
         return "core --------- dc";
     }
 
     @ApiOperation(value = "测试接口")
     @GetMapping("authTest")
-    public String authTest(@ApiParam(name = "name",value = "测试入参")@RequestParam String name){
-        return "auth "+name;
+    public String authTest(@ApiParam(name = "name", value = "测试入参") @RequestParam String name) {
+        return "auth " + name;
     }
 }

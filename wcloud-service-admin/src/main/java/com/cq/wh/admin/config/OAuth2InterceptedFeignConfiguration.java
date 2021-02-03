@@ -17,13 +17,15 @@ public class OAuth2InterceptedFeignConfiguration {
     private ClientCredentialsResourceDetails clientCredentialsResourceDetails;
 
     @Bean
-    public ClientCredentialsResourceDetails clientCredentialsResourceDetails(){
+    public ClientCredentialsResourceDetails clientCredentialsResourceDetails() {
         ClientCredentialsResourceDetails clientCredentialsResourceDetails = new ClientCredentialsResourceDetails();
         clientCredentialsResourceDetails.setClientId("internal");
         clientCredentialsResourceDetails.setClientSecret("internal");
         clientCredentialsResourceDetails.setAccessTokenUri("http://127.0.0.1:12000/oauth/token");
         return clientCredentialsResourceDetails;
-    };
+    }
+
+    ;
 
     @Bean(name = "oauth2RequestInterceptor")
     public RequestInterceptor getOAuth2RequestInterceptor() throws IOException {

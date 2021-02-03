@@ -18,19 +18,20 @@ import java.io.IOException;
 @EnableFeignClients
 public class WcloudServiceAdminApplication {
 
-	@Bean
-	@LoadBalanced
-	public RestTemplate restTemplate(){
-		RestTemplateBuilder restTemplateBuilder = new RestTemplateBuilder();
-		return  restTemplateBuilder.build();
-	}
+    @Bean
+    @LoadBalanced
+    public RestTemplate restTemplate() {
+        RestTemplateBuilder restTemplateBuilder = new RestTemplateBuilder();
+        return restTemplateBuilder.build();
+    }
 
-	@Bean(name = "userFeignClientInterceptor")
-	public RequestInterceptor getUserFeignClientInterceptor() throws IOException {
-		return new UserFeignClientInterceptor();
-	}
-	public static void main(String[] args) {
-		SpringApplication.run(WcloudServiceAdminApplication.class, args);
-	}
+    @Bean(name = "userFeignClientInterceptor")
+    public RequestInterceptor getUserFeignClientInterceptor() throws IOException {
+        return new UserFeignClientInterceptor();
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(WcloudServiceAdminApplication.class, args);
+    }
 
 }

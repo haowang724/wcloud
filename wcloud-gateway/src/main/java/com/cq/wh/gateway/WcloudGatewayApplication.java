@@ -19,17 +19,17 @@ import java.util.List;
 @EnableFeignClients
 public class WcloudGatewayApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(WcloudGatewayApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(WcloudGatewayApplication.class, args);
+    }
 
-	@Bean
-	@LoadBalanced
-	public RestTemplate restTemplate(){
-		RestTemplateBuilder builder = new RestTemplateBuilder();
-		List<ClientHttpRequestInterceptor> interceptors = new ArrayList<>();
-		interceptors.add(new HeaderRequestInterceptor("token", "123"));
-		return builder.build();
-	}
+    @Bean
+    @LoadBalanced
+    public RestTemplate restTemplate() {
+        RestTemplateBuilder builder = new RestTemplateBuilder();
+        List<ClientHttpRequestInterceptor> interceptors = new ArrayList<>();
+        interceptors.add(new HeaderRequestInterceptor("token", "123"));
+        return builder.build();
+    }
 
 }

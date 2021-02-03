@@ -13,15 +13,15 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date: 2020-03-22 09:21
  * @Description : 测试类
  */
-@Api(value = "TestController",tags = {"测试接口"})
+@Api(value = "TestController", tags = {"测试接口"})
 @RestController
 @RequestMapping("/core")
 public class TestController {
 
     @ApiOperation(value = "测试权限接口")
     @GetMapping("workTest")
-    public String workTest(@ApiParam(name = "name",value = "测试入参")@RequestParam String name){
-        return "work "+name;
+    public String workTest(@ApiParam(name = "name", value = "测试入参") @RequestParam String name) {
+        return "work " + name;
     }
 
 }

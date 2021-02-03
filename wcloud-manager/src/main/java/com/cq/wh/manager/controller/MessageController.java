@@ -24,14 +24,14 @@ public class MessageController {
     private RabbitTemplate rabbitTemplate;
 
     @GetMapping("/sendMsg")
-    public String sendMsg(){
+    public String sendMsg() {
         String messageId = String.valueOf(UUID.randomUUID());
         String messageData = "test message, hello!";
         String createTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-        Map<String,Object> map=new HashMap<>();
-        map.put("messageId",messageId);
-        map.put("messageData",messageData);
-        map.put("createTime",createTime);
+        Map<String, Object> map = new HashMap<>();
+        map.put("messageId", messageId);
+        map.put("messageData", messageData);
+        map.put("createTime", createTime);
         //将消息携带绑定键值：TestDirectRouting 发送到交换机TestDirectExchange
         rabbitTemplate.convertAndSend("TestDirectExchange", "TestDirectRouting", map);
         return "ok";
